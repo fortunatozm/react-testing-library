@@ -51,7 +51,8 @@ describe('Teste o componente <App.js />', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/kelly');
     // console.log(history);
-    const titleNotFound = screen.getByRole('heading', { name: 'Page requested not found' });
+    const titleNotFound = screen.getByRole('heading',
+      { name: 'Page requested not found' });
     expect(titleNotFound).toBeInTheDocument();
   });
 });
