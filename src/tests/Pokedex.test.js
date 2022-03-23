@@ -1,5 +1,6 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
 import Pokedex from '../components/Pokedex';
 import App from '../App';
@@ -14,11 +15,29 @@ describe('Teste o componente <Pokedex.js />', () => {
 
   test('Teste se é exibido o próximo Pokémon da lista quando o botão Próximo '
   + 'pokémon é clicado', () => {
-    renderWithRouter(<Pokedex />);
-    const testAboutImg = screen.getByRole('img');
-    expect(testAboutImg).toBeInTheDocument();
-    const srcImage = testAboutImg.src;
-    expect(srcImage).toBe('https://cdn2.bulbagarden.net/upload/thumb/8/86/'
-    + 'Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png');
+    renderWithRouter(<App />);
+    const btText = screen.getByRole('button', { name: 'Próximo pokémon' });
+    expect(btText).toBeInTheDocument();
+    userEvent.click(btText);
+    const btNext = screen.getByText('Charmander');
+    expect(btNext).toBeInTheDocument();
+    userEvent.click(btText);
+    userEvent.click(btText);
+    userEvent.click(btText);
+    userEvent.click(btText);
+    userEvent.click(btText);
+    userEvent.click(btText);
+    userEvent.click(btText);
+    userEvent.click(btText);
+    const btFirst = screen.getByText('Pikachu');
+    expect(btFirst).toBeInTheDocument();
+  });
+
+  test('Teste se é mostrado apenas um Pokémon por vez.', () => {
+    renderWithRouter(<App />);
+    const btClick = screen.getByRole('button', { name: 'Próximo pokémon' });
+    userEvent.click(btClick);
+    const btList = screen.getAllByTestId('pokemon-name');
+    expect(btList.length).toBe(1);
   });
 });

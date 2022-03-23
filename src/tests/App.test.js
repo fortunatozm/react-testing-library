@@ -51,7 +51,7 @@ describe('Teste o componente <App.js />', () => {
     history.push('/kelly');
     // console.log(history);
     const titleNotFound = screen.getByRole('heading',
-      { name: 'Page requested not found' });
+      { name: /Page requested not found/i });
     expect(titleNotFound).toBeInTheDocument();
   });
 });
