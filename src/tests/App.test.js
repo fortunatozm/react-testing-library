@@ -28,7 +28,6 @@ describe('Teste o componente <App.js />', () => {
   test('Teste se a aplicação é redirecionada para a página de About,'
   + 'na URL /about, ao clicar no link About da barra de navegação.', () => {
     renderWithRouter(<App />);
-
     const aboutClick = screen.getByRole('link', { name: 'About' });
     userEvent.click(aboutClick);
     const titleAbout = screen.getByRole('heading', { name: 'About Pokédex' });
