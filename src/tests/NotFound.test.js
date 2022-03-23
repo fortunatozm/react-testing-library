@@ -18,7 +18,5 @@ describe('Teste o componente <NotFound.js />', () => {
     + 'requested was not found');
     expect(testNotFoundImg).toHaveAttribute('src', 'https://media.giphy.com/'
     + 'media/kNSeTs31XBZ3G/giphy.gif');
-    // const srcImage = testNotFoundImg.src;
-    // expect(srcImage).toBe('https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif');
   });
 });
