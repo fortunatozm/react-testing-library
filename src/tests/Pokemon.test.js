@@ -51,11 +51,5 @@ describe('Teste o componente <Pokemon.js />', () => {
     const iconFavo = screen.getByAltText('Pikachu is marked as favorite');
     expect(iconFavo).toBeInTheDocument();
     expect(iconFavo.src).toBe('http://localhost/star-icon.svg');
-
-    // userEvent.click(clickMore);
-    // const moreTitle = screen.getByRole('heading', { level: 2, name: 'Pikachu Details' });
-    // expect(moreTitle).toBeInTheDocument();
-    // const { pathname } = history.location;
-    // expect(pathname).toBe('/pokemons/25');
   });
 });
